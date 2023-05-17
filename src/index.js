@@ -1,20 +1,23 @@
-import _ from "lodash";
+import pageLoad from "./pageLoad/pageLoad";
+import {
+  newProjects,
+  Project,
+  projectLibrary,
+} from "./components/Model/projectTemplate";
 import "./style.css";
 
-function hello() {
-  const sectionContainer = document.createElement("div");
+pageLoad();
 
-  const h1 = document.createElement("h1");
-  h1.innerHTML = _.join(["Hello", "webpack"], " ");
-  h1.classList.add("hello");
+const defaultProject = new Project("Default");
+console.log(defaultProject.title);
 
-  const h2 = document.createElement("h2");
-  h2.textContent = "HELLLLO WORLD";
+defaultProject.pushProjectToProjectLibrary();
 
-  sectionContainer.appendChild(h1);
-  sectionContainer.appendChild(h2);
+const defaultProject2 = new Project("Default2");
+defaultProject2.pushProjectToProjectLibrary();
 
-  return sectionContainer;
-}
+console.table(projectLibrary);
 
-document.body.appendChild(hello());
+defaultProject.removeProjectFromLibrary();
+
+defaultProject2.removeProjectFromLibrary();

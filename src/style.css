@@ -1,3 +1,56 @@
-.hello {
-  color: red;
+body,
+html {
+  height: 100%;
+  box-sizing: border-box;
 }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+  outline: 2px solid black;
+}
+
+body {
+  font-size: 16px;
+  background-color: lightblue;
+}
+
+#content {
+  height: 100%;
+
+
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 100px 2fr minmax(200px, 1fr);
+}
+
+#headerContainer {
+  grid-column-start: 1;
+  grid-column-end: -1;
+
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background-color: red;
+}
+
+#sideContainer {
+  grid-row-start: 2;
+  grid-row-end: 5;
+  background-color: blue;
+}
+
+#displayCurrentPageContainer {
+  grid-row-start: 2;
+  grid-row-end: 4;
+  background-color: grey;
+}
+
+/* Header */
+
+
+/* Side */
+
+/* Main */

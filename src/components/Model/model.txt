@@ -1,0 +1,8 @@
+The model will be what defines a task and a list
+
+Where we would save or push them into their own collection
+(array)
+
+
+We will create the tasks in here as well, and the project class
+
