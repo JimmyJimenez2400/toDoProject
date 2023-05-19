@@ -1,8 +1,4 @@
-Controller will be about how we will call the functions or class,
-Similar to a recipe, where we follow the steps
-in order to make it work
+Acts a liaison between model and view, receiving user input and deciding what to do with it
 
 Examples:
-User clicks on `Add Project +`, we want to call a function
-that will do what it has to do in order for it to display
-on the sidebar
+User clicks on `Add Project +`, we want to call a function, we'll save user inputs

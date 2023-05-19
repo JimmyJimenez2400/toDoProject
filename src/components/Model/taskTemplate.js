@@ -1,5 +1,3 @@
-const currentFolder = [];
-
 class ToDoItem {
   constructor(task, date, priority) {
     this.task = task;
@@ -30,6 +28,4 @@ class ToDoItem {
   set priority(value) {
     this._priority = value;
   }
-
-  pushToDoItemToLibrary()
 }

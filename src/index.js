@@ -1,23 +1,11 @@
 import pageLoad from "./pageLoad/pageLoad";
-import {
-  newProjects,
-  Project,
-  projectLibrary,
-} from "./components/Model/projectTemplate";
+import folderToDoList from "./components/Model/folderTodoLibrary";
 import "./style.css";
 
 pageLoad();
 
-const defaultProject = new Project("Default");
-console.log(defaultProject.title);
+console.log(folderToDoList.folderLibrary);
+console.log(folderToDoList.pushFolders_To_ToDoLibrary());
+console.log(folderToDoList.folderLibrary);
 
-defaultProject.pushProjectToProjectLibrary();
-
-const defaultProject2 = new Project("Default2");
-defaultProject2.pushProjectToProjectLibrary();
-
-console.table(projectLibrary);
-
-defaultProject.removeProjectFromLibrary();
-
-defaultProject2.removeProjectFromLibrary();
+folderToDoList.iteratingOverArray();
