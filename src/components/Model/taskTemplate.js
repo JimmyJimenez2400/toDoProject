@@ -1,31 +1,43 @@
-class ToDoItem {
-  constructor(task, date, priority) {
+/* eslint-disable no-dupe-class-members */
+class Task {
+  task;
+
+  date;
+
+  priority;
+
+  id;
+
+  constructor(task, date, priority, id = "Hello") {
     this.task = task;
     this.date = date;
     this.priority = priority;
+    this.id = id;
   }
 
   get task() {
-    return this._task;
+    return this.task;
   }
 
   set task(value) {
-    this._task = value;
+    this.task = value;
   }
 
   get date() {
-    return this._date;
+    return this.date;
   }
 
   set date(value) {
-    this._date = value;
+    this.date = value;
   }
 
   get priority() {
-    return this._priority;
+    return this.priority;
   }
 
   set priority(value) {
-    this._priority = value;
+    this.priority = value;
   }
 }
+
+export default Task;
