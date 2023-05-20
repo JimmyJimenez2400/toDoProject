@@ -1,5 +1,13 @@
-# webpack-eslint-prettier-template
+# ToDO Project
 
-This is my template to use for future projects that will use webpack, eslint and prettier.
+Building a Todo Project that will allow user to create a project and tasks within that project.
 
-Feel free to clone this repository if you wanna be lazy like me
+Allow user to check if task is finished
+
+Delete Tasks
+
+Add Tasks
+
+## Technology Used
+
+Webpack, Eslint, Prettier, HTML, CSS, and JavaScript
