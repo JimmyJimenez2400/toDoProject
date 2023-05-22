@@ -1,5 +1,7 @@
 /* eslint-disable no-dupe-class-members */
 // For Folder Names
+import randomString from "../../helpful_functions/createRandomID";
+
 class Project {
   projectArray = [];
 
@@ -7,6 +9,7 @@ class Project {
 
   constructor(title) {
     this.title = title;
+    this.id = randomString();
   }
 
   get title() {
@@ -17,17 +20,12 @@ class Project {
     this.title = value;
   }
 
-  pushToProjects(item) {
-    this.projectArray.append(item);
-  }
-
-  removeFromProjects(item) {
-    // We want to remove specific item from array
-    // Give Specific ID to each Task
-  }
-
   get Projects() {
     return this.projectArray;
+  }
+
+  get itemID() {
+    return this.id;
   }
 }
 

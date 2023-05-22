@@ -7,26 +7,33 @@ import Collection from "./components/Model/collectionTemplate";
 
 pageLoad();
 
-const HomeFolder = new Project("Home");
-console.log(HomeFolder);
+const FolderContainer = new Collection("Folder");
 
-const cleanToilet = new Task("Clean Toilet", "5/20/2023", "High");
-console.log(cleanToilet);
-HomeFolder.projectArray.push(cleanToilet);
-console.log(HomeFolder);
+console.log(FolderContainer.title);
 
-const cleanRoom = new Task("Clean Room", "5/20/2023", "Medium");
+const home = new Project("Home");
+const school = new Project("School");
 
-const cleanDesk = new Task("Clean Desk", "5/20/2023", "Low");
+FolderContainer.addItem(home);
+FolderContainer.addItem(school);
 
-HomeFolder.projectArray.push(cleanDesk, cleanRoom);
-console.log(HomeFolder.projects);
+console.log(home);
+console.log(school);
 
-const SchoolFolder = new Project("School");
-console.log(SchoolFolder);
+function updateUI() {
+  const values = [];
+  const keys = Object.keys(localStorage);
+  let i = keys.length;
+  while (i--) {
+    values.push(localStorage.getItem(keys[i]));
+  }
+  document.getElementById("ls-currently").textContent = values;
+}
 
-const FolderContainer = new Collection();
-FolderContainer.items.push(HomeFolder);
-FolderContainer.items.push(SchoolFolder);
+const addButton = document.getElementById("addItem");
+// addButton.addEventListener("click", () => {
+//   window.localStorage.setItem("name", "Jimmy");
+//   updateUI();
+// });
 
-console.log(FolderContainer.items);
+console.log(addButton);
