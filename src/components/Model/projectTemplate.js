@@ -3,13 +3,12 @@
 import randomString from "../../helpful_functions/createRandomID";
 
 class Project {
-  projectArray = [];
-
   title;
 
   constructor(title) {
     this.title = title;
     this.id = randomString();
+    this.tasks = [];
   }
 
   get title() {
@@ -21,11 +20,15 @@ class Project {
   }
 
   get Projects() {
-    return this.projectArray;
+    return this.projectToDoItems;
   }
 
   get itemID() {
     return this.id;
+  }
+
+  addToTasksOutside(item) {
+    this.tasks.push(item);
   }
 }
 

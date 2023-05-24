@@ -3,37 +3,50 @@ import "./style.css";
 
 import Project from "./components/Model/projectTemplate";
 import Task from "./components/Model/taskTemplate";
-import Collection from "./components/Model/collectionTemplate";
+
+import {
+  saveProjectSTodoLS,
+  lookForDataInLS,
+} from "./helpful_functions/localStorage";
+
+import {
+  addProjectToProjects,
+  getProjects,
+} from "./components/Model/collection";
 
 pageLoad();
 
-const FolderContainer = new Collection("Folder");
+const folder1 = new Project("Title");
+const task1 = new Task("task1", "04/24/2400", "low", "1");
+const task2 = new Task("task2", "04/24/2400", "low", "1");
+const task3 = new Task("task3", "04/24/2400", "low", "1");
 
-console.log(FolderContainer.title);
+folder1.addToTasksOutside(task1);
+folder1.addToTasksOutside(task2);
+folder1.addToTasksOutside(task3);
+console.table(folder1);
 
-const home = new Project("Home");
-const school = new Project("School");
+addProjectToProjects(folder1);
+console.log(getProjects());
 
-FolderContainer.addItem(home);
-FolderContainer.addItem(school);
+saveProjectSTodoLS();
+lookForDataInLS();
 
-console.log(home);
-console.log(school);
+console.log(getProjects());
 
-function updateUI() {
-  const values = [];
-  const keys = Object.keys(localStorage);
-  let i = keys.length;
-  while (i--) {
-    values.push(localStorage.getItem(keys[i]));
-  }
-  document.getElementById("ls-currently").textContent = values;
-}
+// function updateUI() {
+//   const values = [];
+//   const keys = Object.keys(localStorage);
+//   let i = keys.length;
+//   while (i--) {
+//     values.push(localStorage.getItem(keys[i]));
+//   }
+//   document.getElementById("ls-currently").textContent = `Value: ${values}`;
+// }
 
-const addButton = document.getElementById("addItem");
+// const addButton = document.querySelector(".addItem");
+// console.log(addButton);
 // addButton.addEventListener("click", () => {
 //   window.localStorage.setItem("name", "Jimmy");
 //   updateUI();
 // });
-
-console.log(addButton);
