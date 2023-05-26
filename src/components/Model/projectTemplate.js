@@ -47,7 +47,7 @@ class Project {
     };
   }
 
-  addToTasksOutside(item) {
+  addTodoItems(item) {
     this.#tasks.push(item);
   }
 }
