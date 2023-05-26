@@ -3,15 +3,21 @@ import { getProjects } from "../components/Model/collection";
 
 function saveProjectSTodoLS() {
   const stringify = JSON.stringify(getProjects());
-  localStorage.setItem("projects", JSON.stringify(stringify));
-  // We need to target the arrays of collection and project
+  localStorage.setItem("projects", stringify);
 }
 
 function lookForDataInLS() {
   // We need to look for the data in the local storage
+  if (localStorage.getItem("projects") === null) {
+    return [];
+  }
+  const getItem = localStorage.getItem("projects");
+  console.log(`Getting item...: ${getItem}`);
+  console.log(`Typeof getItem: ${typeof getItem}`);
 
-  const data = JSON.parse(localStorage.getItem("projects"));
-  console.log(`Here is the data: ${data}`);
+  const data = JSON.parse(getItem);
+
+  return data;
 }
 
 export { saveProjectSTodoLS, lookForDataInLS };
