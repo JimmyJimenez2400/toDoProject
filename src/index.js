@@ -16,24 +16,21 @@ import {
 
 pageLoad();
 
-const folder1 = new Project("Title");
-const task1 = new Task("task1", "04/24/2400", "low", "1");
-const task2 = new Task("task2", "04/24/2400", "low", "1");
-const task3 = new Task("task3", "04/24/2400", "low", "1");
+// const test = new Project("Test");
 
-folder1.addToTasksOutside(task1);
-folder1.addToTasksOutside(task2);
-folder1.addToTasksOutside(task3);
-console.table(folder1);
+// addProjectToProjects(test);
 
-addProjectToProjects(folder1);
-console.log(getProjects());
+// saveProjectSTodoLS();
+// lookForDataInLS();
 
-saveProjectSTodoLS();
-lookForDataInLS();
-
-console.log(getProjects());
-
+window.Project = Project;
+window.Task = Task;
+window.ProjectManager = {
+  addProject: addProjectToProjects,
+  getProj: getProjects(),
+  save: saveProjectSTodoLS,
+  load: lookForDataInLS,
+};
 // function updateUI() {
 //   const values = [];
 //   const keys = Object.keys(localStorage);
