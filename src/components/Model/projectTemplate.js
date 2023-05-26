@@ -3,32 +3,52 @@
 import randomString from "../../helpful_functions/createRandomID";
 
 class Project {
-  title;
+  #title;
 
-  constructor(title) {
-    this.title = title;
-    this.id = randomString();
-    this.tasks = [];
+  #id;
+
+  #tasks;
+
+  constructor(title, id = randomString()) {
+    this.#title = title;
+    this.#id = id;
+    this.#tasks = [];
   }
 
   get title() {
-    return this.title;
+    return this.#title;
   }
 
   set title(value) {
-    this.title = value;
+    this.#title = value;
   }
 
-  get Projects() {
-    return this.projectToDoItems;
+  set id(value) {
+    this.#id = value;
   }
 
-  get itemID() {
-    return this.id;
+  get id() {
+    return this.#id;
+  }
+
+  set tasks(value) {
+    this.#tasks = value;
+  }
+
+  get tasks() {
+    return this.#tasks;
+  }
+
+  toJSON() {
+    return {
+      title: this.title,
+      tasks: this.tasks,
+      id: this.id,
+    };
   }
 
   addToTasksOutside(item) {
-    this.tasks.push(item);
+    this.#tasks.push(item);
   }
 }
 
