@@ -39,6 +39,14 @@ class Task {
     this.#priority = value;
   }
 
+  set id(value) {
+    this.#id = value;
+  }
+
+  get id() {
+    return this.#id;
+  }
+
   toJSON() {
     return {
       task: this.task,
