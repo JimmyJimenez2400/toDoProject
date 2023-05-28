@@ -12,6 +12,7 @@ import {
 import {
   addProjectToProjects,
   getProjects,
+  removeProjectFromProjects,
 } from "./components/Model/collection";
 
 pageLoad();
@@ -27,23 +28,8 @@ window.Project = Project;
 window.Task = Task;
 window.ProjectManager = {
   addProject: addProjectToProjects,
-  getProj: getProjects(),
+  removeProject: removeProjectFromProjects,
+  getProjects,
   save: saveProjectSTodoLS,
   load: lookForDataInLS,
 };
-// function updateUI() {
-//   const values = [];
-//   const keys = Object.keys(localStorage);
-//   let i = keys.length;
-//   while (i--) {
-//     values.push(localStorage.getItem(keys[i]));
-//   }
-//   document.getElementById("ls-currently").textContent = `Value: ${values}`;
-// }
-
-// const addButton = document.querySelector(".addItem");
-// console.log(addButton);
-// addButton.addEventListener("click", () => {
-//   window.localStorage.setItem("name", "Jimmy");
-//   updateUI();
-// });
