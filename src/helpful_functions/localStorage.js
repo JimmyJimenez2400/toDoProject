@@ -1,9 +1,13 @@
 // Save everything
-import { getProjects } from "../components/Model/collection";
+import Project from "../components/Model/projectTemplate";
+import { setProjects, getProjects } from "../components/Model/collection";
 
 function saveProjectSTodoLS() {
   const stringify = JSON.stringify(getProjects());
+
   localStorage.setItem("projects", stringify);
+
+  // we need to setItem for todo items, how do we grab that?
 }
 
 function lookForDataInLS() {
@@ -16,8 +20,13 @@ function lookForDataInLS() {
   console.log(`Typeof getItem: ${typeof getItem}`);
 
   const data = JSON.parse(getItem);
+  console.log(data);
+  console.log(`Typeof getItem: ${typeof data}`);
+  console.log(`Is data an array?: ${Array.isArray(data)}`);
 
-  return data;
+  return data.forEach((item) =>
+    setProjects(Object.assign(new Project(), item))
+  );
 }
 
 export { saveProjectSTodoLS, lookForDataInLS };
