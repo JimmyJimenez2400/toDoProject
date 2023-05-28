@@ -1,6 +1,8 @@
 /* eslint-disable no-dupe-class-members */
 // For Folder Names
+import { get } from "lodash";
 import randomString from "../../helpful_functions/createRandomID";
+import Task from "./taskTemplate";
 
 class Project {
   #title;
@@ -47,8 +49,14 @@ class Project {
     };
   }
 
-  addTodoItems(item) {
-    this.#tasks.push(item);
+  addTodoItems(title, date, priority, id = randomString()) {
+    const todoItem = new Task(title, date, priority, id);
+    this.#tasks.push(todoItem);
+  }
+
+  removeTodoItem(itemID) {
+    console.log(itemID);
+    // this.#tasks = this.#tasks.filter((task) => task);
   }
 }
 
