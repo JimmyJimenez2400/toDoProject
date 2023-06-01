@@ -16,13 +16,8 @@ function lookForDataInLS() {
     return [];
   }
   const getItem = localStorage.getItem("projects");
-  console.log(`Getting item...: ${getItem}`);
-  console.log(`Typeof getItem: ${typeof getItem}`);
 
   const data = JSON.parse(getItem);
-  console.log(data);
-  console.log(`Typeof getItem: ${typeof data}`);
-  console.log(`Is data an array?: ${Array.isArray(data)}`);
 
   return data.forEach((item) =>
     setProjects(Object.assign(new Project(), item))

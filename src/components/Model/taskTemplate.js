@@ -1,50 +1,44 @@
 /* eslint-disable no-dupe-class-members */
 class Task {
-  #task;
+  constructor(task, date, priority, notes, id) {
+    this.task = task;
+    this.date = date;
+    this.priority = priority;
+    this.notes = notes;
 
-  #date;
-
-  #priority;
-
-  #id;
-
-  constructor(task, date, priority, id = "Hello") {
-    this.#task = task;
-    this.#date = date;
-    this.#priority = priority;
-    this.#id = id;
+    this.id = id;
   }
 
   get task() {
-    return this.#task;
+    return this.current_task;
   }
 
   set task(value) {
-    this.#task = value;
-  }
+    if (value === "" || value.length < 3) throw new Error("Invalid Task");
 
-  get date() {
-    return this.#date;
-  }
-
-  set date(value) {
-    this.#date = value;
+    this.current_task = value;
   }
 
   get priority() {
-    return this.#priority;
+    return this.current_priority;
   }
 
   set priority(value) {
-    this.#priority = value;
+    if (!["high", "medium", "low"].includes(value.toLowerCase()))
+      throw new Error("Invalid, not one of the choices");
+
+    this.current_priority = value;
   }
 
-  set id(value) {
-    this.#id = value;
+  get notes() {
+    return this.current_notes;
   }
 
-  get id() {
-    return this.#id;
+  set notes(value) {
+    if (value.length < 10)
+      throw new Error("Invalid, note description is too short.");
+
+    this.current_notes = value;
   }
 
   toJSON() {
@@ -52,6 +46,7 @@ class Task {
       task: this.task,
       date: this.date,
       priority: this.priority,
+      notes: this.notes,
       id: this.id,
     };
   }

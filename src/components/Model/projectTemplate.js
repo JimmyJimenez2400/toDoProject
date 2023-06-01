@@ -1,78 +1,43 @@
 /* eslint-disable no-dupe-class-members */
 // For Folder Names
-import { get } from "lodash";
 import randomString from "../../helpful_functions/createRandomID";
 import Task from "./taskTemplate";
 
 class Project {
-  #title;
-
-  #id;
-
-  #tasks;
-
-  constructor(title, id = randomString()) {
-    this.#title = title;
-    this.#id = id;
-    this.#tasks = [];
+  constructor(title, description, id = randomString()) {
+    this.title = title;
+    this.description = description;
+    this.id = id;
+    this.tasks = [];
   }
 
-  get title() {
-    return this.#title;
+  addTodoItem(task, date, priority, notes, id = randomString()) {
+    const todoItem = new Task(task, date, priority, notes, id);
+    this.tasks.push(todoItem);
   }
 
-  set title(value) {
-    this.#title = value;
+  removeTodoItem(item) {
+    console.log(item);
+    console.log(item.id);
+    console.log(`Before: ${this.tasks}`);
+    this.tasks = this.tasks.filter((task) => task.id !== item.id);
+    console.log(`After: ${this.tasks}`);
+    // this.#tasks = this.#tasks.filter((task) => task);
   }
 
-  set id(value) {
-    this.#id = value;
+  retrieveItemsInProject() {
+    this.tasks.forEach((item) => console.log(item));
   }
 
-  get id() {
-    return this.#id;
-  }
-
-  set tasks(value) {
-    this.#tasks = value;
-  }
-
-  get tasks() {
-    return this.#tasks;
-  }
+  r;
 
   toJSON() {
     return {
       title: this.title,
-      tasks: this.tasks,
+      description: this.description,
       id: this.id,
+      tasks: this.tasks,
     };
   }
-
-  addTodoItems(title, date, priority, id = randomString()) {
-    const todoItem = new Task(title, date, priority, id);
-    this.#tasks.push(todoItem);
-  }
-
-  removeTodoItem(itemID) {
-    console.log(itemID);
-    // this.#tasks = this.#tasks.filter((task) => task);
-  }
 }
-
-// removeProjectFromLibrary() {
-//   const getSpecificIndex = projectLibrary.indexOf(this);
-//   // const getTitle = projectLibrary[getSpecificIndex].title;
-//   console.log(getSpecificIndex);
-//   projectLibrary.splice(getSpecificIndex, 1);
-//   console.table(projectLibrary);
-//   // console.log(getTitle);
-//   // console.log(`removing ${this.title} from library`);
-//   // const filterArray = projectLibrary.filter((x) => x.title !== getTitle);
-//   // console.log(`${filterArray} HELLO`);
-//   // console.log(projectLibrary);
-
-//   // We need to remove that specific project from the library
-// }
-
 export default Project;
