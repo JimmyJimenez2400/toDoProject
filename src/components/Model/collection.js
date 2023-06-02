@@ -1,3 +1,6 @@
+import { lookForDataInLS } from "../../helpful_functions/localStorage";
+import Project from "./projectTemplate";
+
 let projects = [];
 
 const addProjectToProjects = (item) => {
@@ -15,10 +18,19 @@ const setProjects = (value) => projects.push(value);
 
 const getProjects = () => projects;
 
+const retrieveFromLocalStorage = (keyName) => {
+  const hello = lookForDataInLS(keyName);
+  // data.forEach((item) =>
+  //   setProjects(Object.assign(new Project(), item))
+  console.log(hello);
+  hello.forEach((item) => setProjects(Object.assign(new Project(), item)));
+};
+
 export {
   addProjectToProjects,
   getProjects,
   projects,
   setProjects,
   removeProjectFromProjects,
+  retrieveFromLocalStorage,
 };
