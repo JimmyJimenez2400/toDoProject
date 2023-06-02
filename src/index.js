@@ -13,22 +13,17 @@ import {
   addProjectToProjects,
   getProjects,
   removeProjectFromProjects,
+  retrieveFromLocalStorage,
 } from "./components/Model/collection";
 
 pageLoad();
-
-// const test = new Project("Test");
-
-// addProjectToProjects(test);
-
-// saveProjectSTodoLS();
-// lookForDataInLS();
 
 window.Project = Project;
 window.Task = Task;
 window.ProjectManager = {
   addProject: addProjectToProjects,
   removeProject: removeProjectFromProjects,
+  retrieveLocalStorage: retrieveFromLocalStorage,
   getProjects,
   save: saveProjectSTodoLS,
   load: lookForDataInLS,
