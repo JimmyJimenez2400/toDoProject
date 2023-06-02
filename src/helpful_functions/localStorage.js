@@ -1,27 +1,23 @@
 // Save everything
-import Project from "../components/Model/projectTemplate";
-import { setProjects, getProjects } from "../components/Model/collection";
 
-function saveProjectSTodoLS() {
-  const stringify = JSON.stringify(getProjects());
+function saveProjectSTodoLS(keyName, array) {
+  const stringify = JSON.stringify(array);
 
-  localStorage.setItem("projects", stringify);
+  localStorage.setItem(keyName, stringify);
 
   // we need to setItem for todo items, how do we grab that?
 }
 
-function lookForDataInLS() {
+function lookForDataInLS(keyName) {
   // We need to look for the data in the local storage
-  if (localStorage.getItem("projects") === null) {
+  if (localStorage.getItem(keyName) === null) {
     return [];
   }
-  const getItem = localStorage.getItem("projects");
+  const getItem = localStorage.getItem(keyName);
 
   const data = JSON.parse(getItem);
 
-  return data.forEach((item) =>
-    setProjects(Object.assign(new Project(), item))
-  );
+  return data;
 }
 
 export { saveProjectSTodoLS, lookForDataInLS };
