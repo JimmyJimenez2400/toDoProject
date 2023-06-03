@@ -14,6 +14,7 @@ import {
   getProjects,
   removeProjectFromProjects,
   retrieveFromLocalStorage,
+  updateInformation,
 } from "./components/Model/collection";
 
 pageLoad();
@@ -24,6 +25,7 @@ window.ProjectManager = {
   addProject: addProjectToProjects,
   removeProject: removeProjectFromProjects,
   retrieveLocalStorage: retrieveFromLocalStorage,
+  editInfo: updateInformation,
   getProjects,
   save: saveProjectSTodoLS,
   load: lookForDataInLS,
