@@ -11,6 +11,28 @@ class Project {
     this.tasks = [];
   }
 
+  set title(value) {
+    if (value.length < 3)
+      throw new Error("Invalid, note description is too short.");
+
+    this.current_title = value;
+  }
+
+  get title() {
+    return this.current_title;
+  }
+
+  set description(value) {
+    if (value.length < 10)
+      throw new Error("Invalid, note description is too short.");
+
+    this.current_description = value;
+  }
+
+  get description() {
+    return this.current_description;
+  }
+
   addTodoItem(task, date, priority, notes, id = randomString()) {
     const todoItem = new Task(task, date, priority, notes, id);
     this.tasks.push(todoItem);
