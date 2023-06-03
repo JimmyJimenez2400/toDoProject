@@ -1,6 +1,7 @@
 import { lookForDataInLS } from "../../helpful_functions/localStorage";
 import Project from "./projectTemplate";
 
+// eslint-disable-next-line import/no-mutable-exports
 let projects = [];
 
 const addProjectToProjects = (item) => {
@@ -14,6 +15,12 @@ const removeProjectFromProjects = (item) => {
   console.log(`Calling Projects after filter: ${projects}`);
 };
 
+const updateInformation = (id, title, description) => {
+  projects = projects.map((item) =>
+    item.id === id ? new Project(title, description, id) : item
+  );
+};
+
 const setProjects = (value) => projects.push(value);
 
 const getProjects = () => projects;
@@ -23,7 +30,9 @@ const retrieveFromLocalStorage = (keyName) => {
   // data.forEach((item) =>
   //   setProjects(Object.assign(new Project(), item))
   console.log(hello);
-  hello.forEach((item) => setProjects(Object.assign(new Project(), item)));
+  return hello.forEach((item) =>
+    setProjects(Object.assign(new Project(), item))
+  );
 };
 
 export {
@@ -33,4 +42,5 @@ export {
   setProjects,
   removeProjectFromProjects,
   retrieveFromLocalStorage,
+  updateInformation,
 };
