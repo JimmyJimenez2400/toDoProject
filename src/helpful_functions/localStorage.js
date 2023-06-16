@@ -2,8 +2,11 @@
 
 function saveProjectSTodoLS(keyName, array) {
   const stringify = JSON.stringify(array);
-
+  // allows us to grab projects
   localStorage.setItem(keyName, stringify);
+
+  // now we need one for todo items
+  
 
   // we need to setItem for todo items, how do we grab that?
 }

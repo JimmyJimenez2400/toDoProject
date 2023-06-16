@@ -33,7 +33,7 @@ class Project {
     return this.current_description;
   }
 
-  addTodoItem(task, date, priority, notes, id = randomString()) {
+  createTodoItem(task, date, priority, notes, id = randomString()) {
     const todoItem = new Task(task, date, priority, notes, id);
     this.tasks.push(todoItem);
   }
@@ -47,19 +47,28 @@ class Project {
     // this.#tasks = this.#tasks.filter((task) => task);
   }
 
+  updateTodoItem(id, task, date, priority, notes) {
+    this.tasks = this.task.map((item) =>
+      item.id === id ? new Task(task, date, priority, notes, id) : item
+    );
+  }
+
   retrieveItemsInProject() {
     this.tasks.forEach((item) => console.log(item));
   }
 
-  r;
-
-  toJSON() {
-    return {
-      title: this.title,
-      description: this.description,
-      id: this.id,
-      tasks: this.tasks,
-    };
+  byID(id) {
+    return this.tasks.find((task) => task.id === id);
   }
+
+ 
+  // toJSON() {
+  //   return {
+  //     title: this.title,
+  //     description: this.description,
+  //     id: this.id,
+  //     tasks: this.tasks,
+  //   };
+  // }
 }
 export default Project;

@@ -40,6 +40,9 @@ body {
   grid-row-start: 2;
   grid-row-end: 5;
   background-color: blue;
+  display: flex;
+  flex: 2;
+  flex-direction: column;
 }
 
 #displayCurrentPageContainer {
@@ -52,5 +55,43 @@ body {
 
 
 /* Side */
+
+.side {
+  display: flex;
+  flex: 1;
+}
+
+.topSection {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+}
+
+.todayFolder {
+  flex: 0 1 10%;
+}
+
+.upcomingFolder {
+  flex: 0 1 10%;
+}
+
+.folderContainer {
+  flex: 1;
+}
+
+.bottomSection {
+  display: inline-flex;
+  flex: 0 1 10%;
+}
+
+.addProjectContainer {
+  display: inline-flex;
+  flex: 1;
+}
+
+.addProject {
+  flex: 1;
+}
 
 /* Main */

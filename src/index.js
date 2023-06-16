@@ -10,11 +10,12 @@ import {
 } from "./helpful_functions/localStorage";
 
 import {
-  addProjectToProjects,
+  createProject,
   getProjects,
-  removeProjectFromProjects,
+  deleteProject,
   retrieveFromLocalStorage,
   updateInformation,
+  readInformation,
 } from "./components/Model/collection";
 
 pageLoad();
@@ -22,9 +23,10 @@ pageLoad();
 window.Project = Project;
 window.Task = Task;
 window.ProjectManager = {
-  addProject: addProjectToProjects,
-  removeProject: removeProjectFromProjects,
+  addProject: createProject,
+  removeProject: deleteProject,
   retrieveLocalStorage: retrieveFromLocalStorage,
+  read: readInformation,
   editInfo: updateInformation,
   getProjects,
   save: saveProjectSTodoLS,

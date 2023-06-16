@@ -4,12 +4,12 @@ import Project from "./projectTemplate";
 // eslint-disable-next-line import/no-mutable-exports
 let projects = [];
 
-const addProjectToProjects = (item) => {
-  // push to projects array
-  projects.push(item);
+const createProject = (title, description) => {
+  const newProject = new Project(title, description);
+  projects.push(newProject);
 };
 
-const removeProjectFromProjects = (item) => {
+const deleteProject = (item) => {
   console.log(`Calling Projects before filter: ${projects}`);
   projects = projects.filter((object) => object.id !== item.id);
   console.log(`Calling Projects after filter: ${projects}`);
@@ -21,6 +21,13 @@ const updateInformation = (id, title, description) => {
   );
 };
 
+const readInformation = () => {
+  projects.forEach((project) =>
+    console.log(`Title:${project.title}, \nDescription: ${project.description}`)
+  );
+};
+
+// Still thinking about how I'll use setProjects
 const setProjects = (value) => projects.push(value);
 
 const getProjects = () => projects;
@@ -36,11 +43,12 @@ const retrieveFromLocalStorage = (keyName) => {
 };
 
 export {
-  addProjectToProjects,
+  createProject,
   getProjects,
   projects,
   setProjects,
-  removeProjectFromProjects,
+  deleteProject,
   retrieveFromLocalStorage,
   updateInformation,
+  readInformation,
 };
