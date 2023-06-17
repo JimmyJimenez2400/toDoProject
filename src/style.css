@@ -95,3 +95,8 @@ body {
 }
 
 /* Main */
+
+
+.dialogContainer {
+  max-width: 100vw;
+}

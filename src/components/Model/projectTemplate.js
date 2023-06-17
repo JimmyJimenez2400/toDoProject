@@ -60,15 +60,5 @@ class Project {
   byID(id) {
     return this.tasks.find((task) => task.id === id);
   }
-
- 
-  // toJSON() {
-  //   return {
-  //     title: this.title,
-  //     description: this.description,
-  //     id: this.id,
-  //     tasks: this.tasks,
-  //   };
-  // }
 }
 export default Project;
