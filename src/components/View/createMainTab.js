@@ -3,7 +3,8 @@ export default function createMainTab(title, description, id) {
   const mainContainer = document.querySelector(".currentPage");
 
   const projectContainer = document.createElement("section");
-  projectContainer.setAttribute("class", `projectContainer-${id}`);
+  projectContainer.setAttribute("class", "projectContainer ONLINE");
+  projectContainer.setAttribute("project-id", `${id}`);
 
   const topRow = document.createElement("section");
   topRow.setAttribute("class", "topRow");
