@@ -189,6 +189,16 @@ button {
   border-radius: 1em;
 }
 
+/* Main page*/
+
+.ONLINE {
+  display: block;
+}
+
+.OFFLINE {
+  display: none;
+}
+
 .currentPage {
   position: relative;
   display: flex;
