@@ -2,14 +2,6 @@ import pageLoad from "./pageLoad/pageLoad";
 import "./style.css";
 
 pageLoad();
-
-function checkLiElements() {
-  const allLiElements = document.getElementsByTagName("li");
-
-  console.log(allLiElements);
-}
-
-checkLiElements();
 // implement tab switching
 
 // We need to be able to click on the projects tabs by targeting ID perhaps?
