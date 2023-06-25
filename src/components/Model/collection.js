@@ -7,6 +7,8 @@ let projects = [];
 const createProject = (title, description) => {
   const newProject = new Project(title, description);
   projects.push(newProject);
+
+  return newProject;
 };
 
 const deleteProject = (item) => {
@@ -23,7 +25,9 @@ const updateInformation = (id, title, description) => {
 
 const readInformation = () => {
   projects.forEach((project) =>
-    console.log(`Title:${project.title}, \nDescription: ${project.description}`)
+    console.log(
+      `Title:${project.title}, \nDescription: ${project.description}, Project ID:${project.id}`
+    )
   );
 };
 

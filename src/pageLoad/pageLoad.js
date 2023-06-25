@@ -5,16 +5,11 @@ export default function pageLoad() {
   const content = document.querySelector("#content");
 
   const addProjectButton = document.querySelector(".addProject");
-  const projectForm = document.getElementById("projectForm");
-
-
+  const projectSubmit = document.querySelector(".submitButton");
 
   addProjectButton.addEventListener("click", openForm);
 
-  projectForm.addEventListener("submit", addProject)
-
-
-
+  projectSubmit.addEventListener("click", addProject);
 
   // addProjectButton.addEventListener("click", () => {
   //   const getTitleInput = document.getElementById("title").value;

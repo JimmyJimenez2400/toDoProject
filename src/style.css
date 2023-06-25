@@ -10,6 +10,8 @@ html {
   box-sizing: inherit;
   padding: 0;
   margin: 0;
+  outline: 2px solid green;
+
 
 }
 
@@ -18,7 +20,7 @@ body {
   background-color: lightblue;
 }
 
-button{
+button {
   cursor: pointer;
 }
 
@@ -62,6 +64,7 @@ button{
 
 .side {
   display: flex;
+  flex-direction: column;
   flex: 1;
 }
 
@@ -184,4 +187,36 @@ button{
   text-transform: uppercase;
   font-weight: 900;
   border-radius: 1em;
+}
+
+.currentPage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+
+  height: 100%;
+}
+
+.topRow {
+  flex: 1;
+}
+
+.middleRow {
+  flex: 2;
+}
+
+.bottomRow {
+  position: absolute;
+  margin-left: auto;
+  bottom: 20px;
+  right: 20px;
+}
+
+.addTaskButton {
+  border: none;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  font-size: 24px;
 }
