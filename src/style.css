@@ -1,3 +1,11 @@
+:root {
+  --Licorice: #0D0106;
+  --Zaffre: #3626A7;
+  --Glaucous: #657ED4;
+  --Scarlet: #FF331F;
+  --Ghost-White: #FBFBFF;
+}
+
 body,
 html {
   height: 100%;
@@ -10,8 +18,7 @@ html {
   box-sizing: inherit;
   padding: 0;
   margin: 0;
-  outline: 2px solid green;
-
+  /* outline: 2px solid green; */
 
 }
 
@@ -30,7 +37,7 @@ button {
 
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 100px 2fr minmax(200px, 1fr);
+  grid-template-rows: auto 2fr minmax(200px, 1fr);
 }
 
 #headerContainer {
@@ -39,13 +46,16 @@ button {
 
   grid-row-start: 1;
   grid-row-end: 2;
-  background-color: red;
+  background-color: var(--Licorice);
+  border: 2px solid var(--Ghost-White);
+  color: var(--Ghost-White);
 }
 
 #sideContainer {
   grid-row-start: 2;
   grid-row-end: 5;
-  background-color: blue;
+  background-color: var(--Licorice);
+  border: 2px solid var(--Ghost-White);
   display: flex;
   flex: 2;
   flex-direction: column;
@@ -54,7 +64,8 @@ button {
 #displayCurrentPageContainer {
   grid-row-start: 2;
   grid-row-end: 4;
-  background-color: grey;
+  background-color: var(--Licorice);
+  border: 2px solid var(--Ghost-White);
 }
 
 /* Header */
@@ -66,6 +77,11 @@ button {
   display: flex;
   flex-direction: column;
   flex: 1;
+  color: var(--Ghost-White);
+}
+
+.projectsTitle {
+  margin-bottom: 5px;
 }
 
 .topSection {
@@ -77,14 +93,20 @@ button {
 
 .todayFolder {
   flex: 0 1 10%;
+  border: 2px solid var(--Ghost-White);
+
 }
 
 .upcomingFolder {
   flex: 0 1 10%;
+  border: 2px solid var(--Ghost-White);
+
 }
 
 .folderContainer {
   flex: 1;
+  border: 2px solid var(--Ghost-White);
+
 }
 
 .bottomSection {
@@ -99,6 +121,24 @@ button {
 
 .addProject {
   flex: 1;
+}
+
+.liElement {
+  cursor: pointer;
+  padding: 10px;
+  font-size: 24px;
+  background-color: gray;
+  color: var(--Ghost-White);
+  border-radius: 20px;
+  display: flex;
+}
+
+.liElement>* {
+  flex: 1;
+}
+
+.liElement:hover {
+  background-color: var(--Scarlet);
 }
 
 /* Main */
@@ -191,6 +231,12 @@ button {
 
 /* Main page*/
 
+.projectContainer {
+  color: var(--Ghost-White);
+  display: flex;
+  flex: 1;
+}
+
 .ONLINE {
   display: block;
 }
@@ -210,11 +256,23 @@ button {
 
 .topRow {
   flex: 1;
+  border-bottom: 2px solid var(--Scarlet);
+
 }
 
-.middleRow {
-  flex: 2;
+.topRowSecond {
+  display: flex;
+  justify-content: space-between;
 }
+
+
+.middleRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 4px;
+}
+
+
 
 .bottomRow {
   position: absolute;
