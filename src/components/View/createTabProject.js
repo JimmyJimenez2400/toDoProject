@@ -9,7 +9,11 @@ export default function createProjectTab(titleInput, itemID) {
   const createTitle = document.createElement("h6");
   createTitle.textContent = `${titleInput}`;
 
+  const editImageBtn = document.createElement("img");
+  editImageBtn.alt = "Edit Btn";
+
   liElementContainer.appendChild(createTitle);
+  liElementContainer.appendChild(editImageBtn);
 
   projectUL.appendChild(liElementContainer);
 
