@@ -1,5 +1,5 @@
 import addProject from "../components/Controller/addProject";
-import openForm from "../components/Controller/openForm";
+import openForm from "../components/Controller/openProjectForm";
 
 export default function pageLoad() {
   const content = document.querySelector("#content");
@@ -10,6 +10,14 @@ export default function pageLoad() {
   addProjectButton.addEventListener("click", openForm);
 
   projectSubmit.addEventListener("click", addProject);
+
+  
+
+  // addItemButton
+  // itemSubmit
+
+  // event listener
+  // event listener
 
   // addProjectButton.addEventListener("click", () => {
   //   const getTitleInput = document.getElementById("title").value;
