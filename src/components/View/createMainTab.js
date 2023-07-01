@@ -1,3 +1,5 @@
+import addItem from "../Controller/addTask";
+
 export default function createMainTab(title, description, id) {
   // append to the maincontainer
   const mainContainer = document.querySelector(".currentPage");
@@ -13,12 +15,21 @@ export default function createMainTab(title, description, id) {
   mainTitle.setAttribute("class", "mainTitle");
   mainTitle.textContent = `${title}`;
 
+  const topRowSecond = document.createElement("section");
+  topRowSecond.setAttribute("class", "topRowSecond");
+
   const descriptionText = document.createElement("p");
   descriptionText.setAttribute("class", "descriptionText");
   descriptionText.textContent = `${description}`;
 
+  const editButton = document.createElement("img");
+  editButton.setAttribute("alt", "EDIT IMAGE");
+
   topRow.appendChild(mainTitle);
-  topRow.appendChild(descriptionText);
+  topRow.appendChild(topRowSecond);
+
+  topRowSecond.appendChild(descriptionText);
+  topRowSecond.appendChild(editButton);
 
   const middleRow = document.createElement("section");
   middleRow.setAttribute("class", "middleRow");
@@ -31,6 +42,8 @@ export default function createMainTab(title, description, id) {
   const addTaskButton = document.createElement("button");
   addTaskButton.setAttribute("class", "addTaskButton");
   addTaskButton.textContent = "+";
+
+  addTaskButton.addEventListener("click", addItem);
 
   bottomRow.appendChild(addTaskButton);
 
