@@ -288,3 +288,87 @@ button {
   width: 50px;
   font-size: 24px;
 }
+
+
+/* Item form*/
+
+.itemForm {
+  position: absolute;
+  margin-right: auto;
+  margin-left: auto;
+  top: 190px;
+  height: 50%;
+  width: 50%;
+
+  border-radius: 1em;
+}
+
+.itemForm::backdrop {
+  background-color: hsla(105, 53%, 48%, 0.25)
+}
+
+.formContainerItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  padding: 1em;
+
+  border-radius: 1em;
+}
+
+.formContainerItem>* {
+  flex: 1;
+}
+
+.formListItem {
+  margin-bottom: 20px;
+}
+
+.formListItem label {
+  display: inline-block;
+  width: 100%;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+/* .formContainerItem input {
+  display: inline-block;
+  width: 100%;
+  font-size: 24px;
+  font-weight: 900;
+} */
+
+.formListItem input{
+  display: inline-block;
+  width: 100%;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.formListItem 
+textarea {
+  display: inline-block;
+  width: 100%;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.secondMiddleSection {
+  display: flex;
+  justify-content: space-around;
+}
+
+.secondMiddleSection>* {
+  flex: 1;
+}
+
+.bottomSectionItem {
+  display: flex;
+  justify-content: space-around;
+}
+
+.bottomSectionItem>button {
+  padding: 20px;
+}
