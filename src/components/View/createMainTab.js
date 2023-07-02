@@ -1,4 +1,4 @@
-import addItem from "../Controller/addTask";
+import openItemForm from "../Controller/openItemForm";
 
 export default function createMainTab(title, description, id) {
   // append to the maincontainer
@@ -43,7 +43,7 @@ export default function createMainTab(title, description, id) {
   addTaskButton.setAttribute("class", "addTaskButton");
   addTaskButton.textContent = "+";
 
-  addTaskButton.addEventListener("click", addItem);
+  addTaskButton.addEventListener("click", openItemForm);
 
   bottomRow.appendChild(addTaskButton);
 
