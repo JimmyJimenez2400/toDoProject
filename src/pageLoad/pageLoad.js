@@ -1,5 +1,7 @@
 import addProject from "../components/Controller/addProject";
 import openForm from "../components/Controller/openProjectForm";
+import addTask from "../components/Controller/addTask";
+import openItemForm from "../components/Controller/openItemForm";
 
 export default function pageLoad() {
   const content = document.querySelector("#content");
@@ -11,7 +13,9 @@ export default function pageLoad() {
 
   projectSubmit.addEventListener("click", addProject);
 
-  
+  const itemSubmit = document.querySelector(".itemSubmit");
+
+  itemSubmit.addEventListener("click", addTask);
 
   // addItemButton
   // itemSubmit
