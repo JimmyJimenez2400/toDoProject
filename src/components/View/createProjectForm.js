@@ -54,6 +54,8 @@ export default function createProjectForm() {
   buttonCancel.setAttribute("class", "cancelButton");
   buttonCancel.textContent = "Cancel";
   buttonCancel.addEventListener("click", () => {
+    titleInput.value = "";
+    descriptionInput.value = "";
     dialogContainer.close();
   });
 
