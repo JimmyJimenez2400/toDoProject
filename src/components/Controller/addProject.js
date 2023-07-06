@@ -11,7 +11,11 @@ export default function addProject(e) {
   const item = createProject(titleInput.value, descriptionInput.value);
 
   createProjectTab(titleInput.value, item.id);
-  createMainTab(titleInput.value, descriptionInput.value, item.id);
+  const stuff = createMainTab(
+    titleInput.value,
+    descriptionInput.value,
+    item.id
+  );
 
   titleInput.value = "";
   descriptionInput.value = "";
