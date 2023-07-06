@@ -6,7 +6,6 @@ function saveProjectSTodoLS(keyName, array) {
   localStorage.setItem(keyName, stringify);
 
   // now we need one for todo items
-  
 
   // we need to setItem for todo items, how do we grab that?
 }
@@ -19,6 +18,8 @@ function lookForDataInLS(keyName) {
   const getItem = localStorage.getItem(keyName);
 
   const data = JSON.parse(getItem);
+
+  // remember parse returns an object not an array
 
   return data;
 }
