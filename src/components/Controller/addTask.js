@@ -1,39 +1,57 @@
+import { projects } from "../Model/collection";
+import createItemCard from "../View/createCardVisual";
+import openItemForm from "./openItemForm";
+
 export default function addItem(e) {
   e.preventDefault();
+  openItemForm();
 
-  console.log("PRESSING ADD ITEM BUTTON");
+  const currentPage = document.querySelector(".currentPage");
 
-  const getTaskInput = document.getElementById("task");
-  const getNoteInput = document.getElementById("note");
-  const getDateInput = document.getElementById("date");
-  const getSelectInput = document.getElementById("select");
+  console.log(currentPage);
 
-  console.log(getTaskInput.value);
-  console.log(getNoteInput.value);
-  console.log(getDateInput.value);
-  console.log(getSelectInput.value);
+  // We want to go through currentPage children and find which ID matches with our e.target.id, if so we append createVisualItemCard
 
-  getTaskInput.value = "";
-  getNoteInput.value = "";
-  getDateInput.value = "";
-  getSelectInput.value = "";
+  const taskInput = document.getElementById("task");
+  const noteInput = document.getElementById("note");
+  const dateInput = document.getElementById("date");
+  const priorityInput = document.getElementById("select");
 
-  // const itemTask = document.getElementById("itemTask");
-  // const itemDate = document.getElementById("itemDate");
-  // const itemPriority = document.getElementById("itemPriority");
-  // const itemNote = document.getElementById("itemNote");
+  const dialogContainer = document.querySelector(".itemForm");
 
-  // const callItemMaker = (
-  //   itemTask.value,
-  //   itemDate.value,
-  //   itemPriority.value,
-  //   itemNote.value
-  // );
+  const cancelButton = document.querySelector(".itemCancel");
 
-  // // call call visual
+  cancelButton.addEventListener("click", () => {
+    dialogContainer.close();
+    dialogContainer.remove();
+  });
 
-  // itemTask.value = "";
-  // itemDate.value = "";
-  // itemPriority.value = "";
-  // itemNote.value = "";
+  const submitButton = document.querySelector(".itemSubmit");
+  submitButton.addEventListener("click", () => {
+    projects.forEach((project) => {
+      console.log(project);
+
+      if (project.id === e.target.id) {
+        console.log(
+          `${project.current_title} matches with ${e.target.id} being clicked on`
+        );
+        project.createTodoItem(
+          taskInput.value,
+          dateInput.value,
+          priorityInput.value,
+          noteInput.value
+        );
+
+        // createItemCard(taskInput.value, noteInput.value, priorityInput.value, dateInput.value)
+      }
+    });
+
+    dialogContainer.close();
+    dialogContainer.remove();
+  });
+
+  // getTaskInput.value = "";
+  // getNoteInput.value = "";
+  // getDateInput.value = "";
+  // getPriorityInput.value = "";
 }
