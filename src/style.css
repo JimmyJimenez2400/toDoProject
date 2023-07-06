@@ -4,6 +4,8 @@
   --Glaucous: #657ED4;
   --Scarlet: #FF331F;
   --Ghost-White: #FBFBFF;
+  --Royal-Blue: #00539C;
+  --Peach: #EEA47F;
 }
 
 body,
@@ -18,7 +20,7 @@ html {
   box-sizing: inherit;
   padding: 0;
   margin: 0;
-  /* outline: 2px solid green; */
+  outline: 2px solid green;
 
 }
 
@@ -123,14 +125,20 @@ button {
   flex: 1;
 }
 
+.projects {
+  padding: 20px;
+}
+
 .liElement {
   cursor: pointer;
   padding: 10px;
   font-size: 24px;
+  margin-bottom: 20px;
   background-color: gray;
   color: var(--Ghost-White);
-  border-radius: 20px;
+
   display: flex;
+  flex-wrap: wrap;
 }
 
 .liElement>* {
@@ -234,6 +242,8 @@ button {
 .projectContainer {
   color: var(--Ghost-White);
   display: flex;
+  flex-direction: column;
+  overflow: scroll;
   flex: 1;
 }
 
@@ -255,9 +265,19 @@ button {
 }
 
 .topRow {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 10%;
   border-bottom: 2px solid var(--Scarlet);
 
+}
+
+.mainTitle {
+  font-size: 3rem;
+}
+
+.descriptionText {
+  font-size: 1.9rem;
 }
 
 .topRowSecond {
@@ -265,28 +285,44 @@ button {
   justify-content: space-between;
 }
 
+.leftSideSectionItem {
+  padding: 20px;
+}
+
 
 .middleRow {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   gap: 4px;
+
+  height: 100%;
+}
+
+.noteArea {
+  padding: 20px;
+  height: 100%;
 }
 
 
 
 .bottomRow {
-  position: absolute;
+
   margin-left: auto;
   bottom: 20px;
   right: 20px;
 }
 
 .addTaskButton {
+  position: absolute;
   border: none;
   border-radius: 50%;
   height: 50px;
   width: 50px;
   font-size: 24px;
+
+  bottom: 20px;
+  right: 20px;
 }
 
 
@@ -340,15 +376,14 @@ button {
   font-weight: 900;
 } */
 
-.formListItem input{
+.formListItem input {
   display: inline-block;
   width: 100%;
   font-size: 24px;
   font-weight: 900;
 }
 
-.formListItem 
-textarea {
+.formListItem textarea {
   display: inline-block;
   width: 100%;
   font-size: 24px;
@@ -371,4 +406,67 @@ textarea {
 
 .bottomSectionItem>button {
   padding: 20px;
+}
+
+/* Card Item*/
+
+.cardItemContainer {
+  background-color: var(--Peach);
+  color: var(--Royal-Blue);
+  border-radius: 20px;
+  margin: 20px;
+  height: 150px;
+  border: none;
+
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.priorityTitleSpan {
+  position: absolute;
+  bottom: 150px;
+  background-color: var(--Ghost-White);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding-left: 25px;
+  padding-right: 25px;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.leftSideSectionItem {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 30%;
+  padding: 20px;
+
+  align-items: center;
+
+  background-color: var(--Royal-Blue);
+  color: var(--Ghost-White);
+
+
+}
+
+.topSectionLeftItem {
+  flex: 2;
+}
+
+.taskSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.middleSectionLeftItem {
+  flex: 1;
+}
+
+.bottomSectionLeftItem {
+  flex: 1;
+}
+
+.rightSideSectionItem {
+  flex: 2;
 }
