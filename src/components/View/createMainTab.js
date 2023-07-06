@@ -1,11 +1,11 @@
-import openItemForm from "../Controller/openItemForm";
+import addItem from "../Controller/addTask";
 
 export default function createMainTab(title, description, id) {
   // append to the maincontainer
   const mainContainer = document.querySelector(".currentPage");
 
   const projectContainer = document.createElement("section");
-  projectContainer.setAttribute("class", "projectContainer ONLINE");
+  projectContainer.setAttribute("class", "projectContainer");
   projectContainer.setAttribute("project-id", `${id}`);
 
   const topRow = document.createElement("section");
@@ -41,9 +41,10 @@ export default function createMainTab(title, description, id) {
 
   const addTaskButton = document.createElement("button");
   addTaskButton.setAttribute("class", "addTaskButton");
+  addTaskButton.setAttribute("id", id);
   addTaskButton.textContent = "+";
 
-  addTaskButton.addEventListener("click", openItemForm);
+  addTaskButton.addEventListener("click", addItem);
 
   bottomRow.appendChild(addTaskButton);
 
@@ -53,7 +54,7 @@ export default function createMainTab(title, description, id) {
 
   mainContainer.appendChild(projectContainer);
 
-  return mainContainer;
+  return projectContainer;
 
   // create top row[title and description will be]
 
