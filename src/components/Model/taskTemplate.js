@@ -23,10 +23,14 @@ class Task {
     return this.current_priority;
   }
 
-  set priority(value) {
-    if (!["high", "medium", "low"].includes(value.toLowerCase()))
-      throw new Error("Invalid, not one of the choices");
+  // set priority(value) {
+  //   if (!["high", "medium", "low"].includes(value.toLowerCase()))
+  //     throw new Error("Invalid, not one of the choices");
 
+  //   this.current_priority = value;
+  // }
+
+  set priority(value) {
     this.current_priority = value;
   }
 
