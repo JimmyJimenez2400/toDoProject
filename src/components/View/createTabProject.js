@@ -25,7 +25,7 @@ export default function createProjectTab(titleInput, itemID) {
 
     for (let i = 0; i < test.length; i += 1) {
       // console.log(test[i].getAttribute("project-id"));
-      if (currentID === test[i].getAttribute("project-id")) {
+      if (currentID === test[i].getAttribute("data-projectid")) {
         test[i].classList.add("ONLINE");
         test[i].classList.remove("OFFLINE");
       } else {
