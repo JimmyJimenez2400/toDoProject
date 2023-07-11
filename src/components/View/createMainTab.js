@@ -6,7 +6,7 @@ export default function createMainTab(title, description, id) {
 
   const projectContainer = document.createElement("section");
   projectContainer.setAttribute("class", "projectContainer");
-  projectContainer.setAttribute("project-id", `${id}`);
+  projectContainer.setAttribute("data-projectid", `${id}`);
 
   const topRow = document.createElement("section");
   topRow.setAttribute("class", "topRow");
