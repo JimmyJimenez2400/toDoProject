@@ -1,9 +1,12 @@
+import removeTaskItem from "../Controller/removeTaskItem";
+
 // Create how the initial card will look
-export default function createItemCard(task, note, priority, date) {
+export default function createItemCard(task, note, priority, date, id) {
   // grab currentPage or main page to append to
 
   const cardContainer = document.createElement("section");
   cardContainer.setAttribute("class", "cardItemContainer");
+  cardContainer.setAttribute("data-cardID", `${id}`);
 
   const priorityTitle = document.createElement("span");
   priorityTitle.setAttribute("class", "priorityTitleSpan");
@@ -40,10 +43,16 @@ export default function createItemCard(task, note, priority, date) {
 
   const bottomSectionLeftItem = document.createElement("section");
   bottomSectionLeftItem.setAttribute("class", "bottomSectionLeftItem");
-  const threeDotMenu = document.createElement("img");
-  threeDotMenu.setAttribute("alt", "...");
+  const editButton = document.createElement("button");
+  editButton.textContent = "Edit";
+  const deleteButton = document.createElement("button");
+  deleteButton.setAttribute("class", "deleteButtonItem");
+  deleteButton.setAttribute("data-deleteid", `${id}`);
+  deleteButton.addEventListener("click", removeTaskItem);
+  deleteButton.textContent = "Delete";
 
-  bottomSectionLeftItem.appendChild(threeDotMenu);
+  bottomSectionLeftItem.appendChild(editButton);
+  bottomSectionLeftItem.appendChild(deleteButton);
 
   leftSideSectionItem.appendChild(topSectionLeftItem);
   leftSideSectionItem.appendChild(middleSectionLeftItem);
