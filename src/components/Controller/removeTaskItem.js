@@ -19,29 +19,15 @@ export default function removeTask(e) {
   const buttonID = e.target.getAttribute("data-deleteid");
 
   const grabAllCards = document.querySelectorAll(".cardItemContainer");
-  console.log(grabAllCards);
 
   for (let i = 0; i < grabAllCards.length; i += 1) {
     const cardID = grabAllCards[i].getAttribute("data-cardid");
     if (buttonID === cardID) {
-      console.log(`Match found ID: ${grabAllCards[i]}`);
       grabAllCards[i].remove();
 
       projects.forEach((project) => {
-        for (let p = 0; p < project.task.length; p += 1) {
-          const projectTaskID = project.task[p].id;
-
-          if (projectTaskID === buttonID) {
-            console.log(
-              `Current ${project.task[p].task} ID: ${project.task[p].id}`
-            );
-            projects.removeTodoItem(buttonID);
-            console.log(projects);
-          }
-        }
+        project.removeTodoItem(buttonID);
       });
-
-      // Next step, we have to remove it from the project task
     }
   }
 }
