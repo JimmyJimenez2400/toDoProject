@@ -22,8 +22,9 @@ export default function createMainTab(title, description, id) {
   descriptionText.setAttribute("class", "descriptionText");
   descriptionText.textContent = `${description}`;
 
-  const editButton = document.createElement("img");
-  editButton.setAttribute("alt", "EDIT IMAGE");
+  const editButton = document.createElement("button");
+  editButton.setAttribute("class", "editButton");
+  editButton.textContent = "Edit";
 
   topRow.appendChild(mainTitle);
   topRow.appendChild(topRowSecond);
