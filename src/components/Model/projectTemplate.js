@@ -33,9 +33,14 @@ class Project {
     return this.current_description;
   }
 
+  get task() {
+    return this.tasks;
+  }
+
   createTodoItem(task, date, priority, notes, id = randomString()) {
     const todoItem = new Task(task, date, priority, notes, id);
     this.tasks.push(todoItem);
+    return todoItem;
   }
 
   removeTodoItem(item) {
@@ -54,7 +59,7 @@ class Project {
   }
 
   retrieveItemsInProject() {
-    this.tasks.forEach((item) => console.log(item));
+    this.tasks.forEach((item) => item);
   }
 
   byID(id) {
