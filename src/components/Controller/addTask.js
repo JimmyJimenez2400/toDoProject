@@ -28,8 +28,6 @@ export default function addItem(e) {
     const mainPages2 = document.querySelectorAll(".projectContainer");
 
     projects.forEach((project) => {
-      console.log(project);
-
       if (project.id === e.target.id) {
         const itemMade = project.createTodoItem(
           taskInput.value,
