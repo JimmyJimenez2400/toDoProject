@@ -24,11 +24,7 @@ const updateInformation = (id, title, description) => {
 };
 
 const readInformation = () => {
-  projects.forEach((project) =>
-    console.log(
-      `Title:${project.title}, \nDescription: ${project.description}, Project ID:${project.id}`
-    )
-  );
+  projects.forEach((project) => project);
 };
 
 // Still thinking about how I'll use setProjects
