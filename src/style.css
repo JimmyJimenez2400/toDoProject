@@ -138,12 +138,22 @@ button {
   color: var(--Ghost-White);
 
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
-.liElement>* {
+.leftSideElementTab {
+  flex: 2;
+}
+
+.rightSideElementTab {
+  display: flex;
+  justify-content: space-between;
   flex: 1;
 }
+
 
 .liElement:hover {
   background-color: var(--Scarlet);
@@ -240,10 +250,11 @@ button {
 /* Main page*/
 
 .projectContainer {
+  height: 100%;
   color: var(--Ghost-White);
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+
   flex: 1;
 }
 
@@ -297,6 +308,8 @@ button {
   gap: 4px;
 
   height: 100%;
+  overflow: scroll;
+  scroll-behavior: smooth;
 }
 
 .noteArea {
