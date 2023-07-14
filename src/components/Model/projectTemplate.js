@@ -44,12 +44,7 @@ class Project {
   }
 
   removeTodoItem(item) {
-    console.log(item);
-    console.log(item.id);
-    console.log(`Before: ${this.tasks}`);
-    this.tasks = this.tasks.filter((task) => task.id !== item.id);
-    console.log(`After: ${this.tasks}`);
-    // this.#tasks = this.#tasks.filter((task) => task);
+    this.tasks = this.tasks.filter((task) => task.id !== item);
   }
 
   updateTodoItem(id, task, date, priority, notes) {
