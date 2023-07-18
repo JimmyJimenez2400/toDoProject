@@ -44,10 +44,10 @@ export default function addItem(e) {
               .querySelector(".middleRow")
               .appendChild(
                 createItemCard(
-                  taskInput.value,
-                  noteInput.value,
-                  priorityInput.value,
-                  dateInput.value,
+                  itemMade.task,
+                  itemMade.notes,
+                  itemMade.priority,
+                  itemMade.date,
                   itemMade.id
                 )
               );
@@ -59,9 +59,4 @@ export default function addItem(e) {
     dialogContainer.close();
     dialogContainer.remove();
   });
-
-  // getTaskInput.value = "";
-  // getNoteInput.value = "";
-  // getDateInput.value = "";
-  // getPriorityInput.value = "";
 }
