@@ -10,11 +10,11 @@ export default function addProject(e) {
 
   const item = createProject(titleInput.value, descriptionInput.value);
 
-  createProjectTab(titleInput.value, item.id);
-  createMainTab(titleInput.value, descriptionInput.value, item.id);
+  console.log(`HELLLO: ${item.title}`);
+
+  createProjectTab(item.title, item.id);
+  createMainTab(item.title, item.description, item.id);
 
   titleInput.value = "";
   descriptionInput.value = "";
-
-  return item;
 }
