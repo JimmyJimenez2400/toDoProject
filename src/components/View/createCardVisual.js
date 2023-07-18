@@ -1,4 +1,5 @@
 import removeTaskItem from "../Controller/removeTaskItem";
+import editTask from "../Controller/editTask";
 
 // Create how the initial card will look
 export default function createItemCard(task, note, priority, date, id) {
@@ -26,6 +27,8 @@ export default function createItemCard(task, note, priority, date, id) {
   const inputTask = document.createElement("input");
   inputTask.setAttribute("type", "checkbox");
   const labelTask = document.createElement("label");
+  labelTask.setAttribute("for", "checkbox");
+  labelTask.setAttribute("class", "labelTask");
   labelTask.textContent = `${task}`;
 
   taskSection.appendChild(inputTask);
@@ -37,6 +40,7 @@ export default function createItemCard(task, note, priority, date, id) {
   middleSectionLeftItem.setAttribute("class", "middleSectionLeftItem");
 
   const inputDate = document.createElement("p");
+  inputDate.setAttribute("class", "inputDate");
   inputDate.textContent = `${date}`;
 
   middleSectionLeftItem.appendChild(inputDate);
@@ -44,7 +48,11 @@ export default function createItemCard(task, note, priority, date, id) {
   const bottomSectionLeftItem = document.createElement("section");
   bottomSectionLeftItem.setAttribute("class", "bottomSectionLeftItem");
   const editButton = document.createElement("button");
+  editButton.setAttribute("class", "editButton");
+  editButton.setAttribute("data-editid", `${id}`);
+  editButton.addEventListener("click", editTask);
   editButton.textContent = "Edit";
+
   const deleteButton = document.createElement("button");
   deleteButton.setAttribute("class", "deleteButtonItem");
   deleteButton.setAttribute("data-deleteid", `${id}`);
