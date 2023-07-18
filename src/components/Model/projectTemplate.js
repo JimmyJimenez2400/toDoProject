@@ -23,7 +23,7 @@ class Project {
   }
 
   set description(value) {
-    if (value.length < 5)
+    if (value.length < 3)
       throw new Error("Invalid, note description is too short.");
 
     this.current_description = value;
