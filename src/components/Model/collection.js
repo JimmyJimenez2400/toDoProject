@@ -13,7 +13,7 @@ const createProject = (title, description) => {
 
 const deleteProject = (item) => {
   console.log(`Calling Projects before filter: ${projects}`);
-  projects = projects.filter((object) => object.id !== item.id);
+  projects = projects.filter((object) => object.id !== item);
   console.log(`Calling Projects after filter: ${projects}`);
 };
 
@@ -52,7 +52,6 @@ export {
   setProjects,
   deleteProject,
   retrieveFromLocalStorage,
-  updateInformation,
   readInformation,
   findByID,
   updateTitleAndDescription,
