@@ -37,7 +37,6 @@ export default function editTask(e) {
 
     // Now we update the card
     const grabAllCardVisuals = document.querySelectorAll(".cardItemContainer");
-    console.log(grabAllCardVisuals);
 
     for (let i = 0; i < grabAllCardVisuals.length; i += 1) {
       const cardID = grabAllCardVisuals[i].getAttribute("data-cardid");
@@ -46,7 +45,6 @@ export default function editTask(e) {
       const changeDate = grabAllCardVisuals[i].querySelector(".inputDate");
       const changePriority =
         grabAllCardVisuals[i].querySelector(".priorityTitleSpan");
-      console.log(`Card ID: ${cardID}`);
       if (cardID === buttonID) {
         projects.forEach((project) => {
           const itemFound = project.byID(cardID);
