@@ -59,6 +59,7 @@ class Project {
 
   byID(id) {
     return this.tasks.find((task) => task.id === id);
+    // we can retrieve a specific task or item which can be used to `update cards`
   }
 }
 export default Project;
