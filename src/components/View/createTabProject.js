@@ -7,9 +7,18 @@ export default function createProjectTab(titleInput, itemID) {
   liElementContainer.setAttribute("id", `${itemID}`);
 
   const createTitle = document.createElement("h6");
+  createTitle.classList.add("titleTab");
   createTitle.textContent = `${titleInput}`;
 
+  const deleteButton = document.createElement("button");
+  deleteButton.setAttribute("class", "deleteBtn");
+  const imgIcon = document.createElement("img");
+  imgIcon.setAttribute("alt", "garbage");
+
+  deleteButton.appendChild(imgIcon);
+
   liElementContainer.appendChild(createTitle);
+  liElementContainer.appendChild(deleteButton);
 
   projectUL.appendChild(liElementContainer);
 
