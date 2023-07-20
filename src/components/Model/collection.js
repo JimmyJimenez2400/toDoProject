@@ -17,10 +17,19 @@ const deleteProject = (item) => {
   console.log(`Calling Projects after filter: ${projects}`);
 };
 
-const updateInformation = (id, title, description) => {
+const updateInformation = (id, title, description, task) => {
   projects = projects.map((item) =>
-    item.id === id ? new Project(title, description, id) : item
+    item.id === id ? new Project(title, description, id, task) : item
   );
+};
+
+const findByID = (id) => projects.find((item) => item.id === id);
+
+const updateTitleAndDescription = (title, description, id) => {
+  const item = findByID(id);
+
+  item.title = title;
+  item.description = description;
 };
 
 const readInformation = () => {
@@ -51,4 +60,6 @@ export {
   retrieveFromLocalStorage,
   updateInformation,
   readInformation,
+  findByID,
+  updateTitleAndDescription,
 };
