@@ -5,10 +5,8 @@ export default function editTask(e) {
   e.preventDefault();
   openEditForm();
 
-  console.log(projects);
 
   const buttonID = e.target.getAttribute("data-editid");
-  console.log(`Edit ID: ${buttonID}`);
 
   const getTask = document.getElementById("editTask");
   const getNote = document.getElementById("editNote");
@@ -43,20 +41,20 @@ export default function editTask(e) {
 
     for (let i = 0; i < grabAllCardVisuals.length; i += 1) {
       const cardID = grabAllCardVisuals[i].getAttribute("data-cardid");
+      const changeTaskText = grabAllCardVisuals[i].querySelector(".labelTask");
+      const changeNoteText = grabAllCardVisuals[i].querySelector(".noteArea");
+      const changeDate = grabAllCardVisuals[i].querySelector(".inputDate");
+      const changePriority =
+        grabAllCardVisuals[i].querySelector(".priorityTitleSpan");
       console.log(`Card ID: ${cardID}`);
       if (cardID === buttonID) {
-        console.log(grabAllCardVisuals[i]);
-        const changeTaskText =
-          grabAllCardVisuals[i].querySelector(".labelTask");
-        const changeNoteText = grabAllCardVisuals[i].querySelector(".noteArea");
-        const changeDate = grabAllCardVisuals[i].querySelector(".inputDate");
-        const changePriority =
-          grabAllCardVisuals[i].querySelector(".priorityTitleSpan");
-
-        changeTaskText.textContent = `${getTask.value}`;
-        changeNoteText.textContent = `${getNote.value}`;
-        changeDate.textContent = `${getDate.value}`;
-        changePriority.textContent = `${getPriority.value}`;
+        projects.forEach((project) => {
+          const itemFound = project.byID(cardID);
+          changeTaskText.textContent = `${itemFound.task}`;
+          changeNoteText.textContent = `${itemFound.notes}`;
+          changeDate.textContent = `${itemFound.date}`;
+          changePriority.textContent = `${itemFound.priority}`;
+        });
       }
     }
 
@@ -64,14 +62,9 @@ export default function editTask(e) {
     editDialogContainer.remove();
   });
 
-  // iterate through card visuals
-  // if match, that's the one we want in if statement
-
-  // Grab the id's, then we will use their values
-  // We have to make sure that we're editing the right object
-  // Maybe user for loop projects.task??
-
-  // projects.forEach(project =>{ <- Will go inside an if statement
-  //   project.updateTodoItem();
-  // })
+  // NEW PLAN
+  /* 
+  So we need to find the task object ID that matches with the card chosen
+  Once we do, we save that value into a variable and use it's getters instead of the form values
+ */
 }
