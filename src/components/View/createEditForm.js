@@ -4,6 +4,9 @@ export default function createEditForm() {
   const dialogContainer = document.createElement("dialog");
   dialogContainer.setAttribute("class", "editItemForm");
 
+  const titleHeader = document.createElement("h2");
+  titleHeader.textContent = "Editing Form";
+
   const formContainer = document.createElement("form");
   formContainer.classList.add("formContainerItem");
 
@@ -88,6 +91,7 @@ export default function createEditForm() {
   formContainer.appendChild(secondMiddleSection);
   formContainer.appendChild(bottomSection);
 
+  dialogContainer.appendChild(titleHeader);
   dialogContainer.appendChild(formContainer);
 
   content.appendChild(dialogContainer);
