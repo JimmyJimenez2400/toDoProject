@@ -1,4 +1,5 @@
 import addItem from "../Controller/addTask";
+import editForm from "../Controller/editProject";
 
 export default function createMainTab(title, description, id) {
   // append to the maincontainer
@@ -24,7 +25,9 @@ export default function createMainTab(title, description, id) {
 
   const editButton = document.createElement("button");
   editButton.setAttribute("class", "editButton");
+  editButton.setAttribute("data-editid", id);
   editButton.textContent = "Edit";
+  editButton.addEventListener("click", editForm);
 
   topRow.appendChild(mainTitle);
   topRow.appendChild(topRowSecond);
