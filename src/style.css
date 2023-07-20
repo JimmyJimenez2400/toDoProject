@@ -20,8 +20,7 @@ html {
   box-sizing: inherit;
   padding: 0;
   margin: 0;
-  outline: 2px solid green;
-
+  /* outline: 2px solid green; */
 }
 
 body {
@@ -162,7 +161,8 @@ button {
 /* Main */
 
 
-.dialogContainer {
+.dialogContainer,
+.editItemForm {
   position: absolute;
   margin-right: auto;
   margin-left: auto;
@@ -482,17 +482,4 @@ button {
 
 .rightSideSectionItem {
   flex: 2;
-}
-
-
-.editItemForm {
-  position: absolute;
-  margin-right: auto;
-  margin-left: auto;
-  top: 290px;
-  height: 50%;
-  width: 50%;
-  left: 500px;
-
-  border-radius: 1em;
 }
