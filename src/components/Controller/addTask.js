@@ -1,6 +1,7 @@
 import { projects } from "../Model/collection";
 import createItemCard from "../View/createCardVisual";
 import openItemForm from "./openItemForm";
+import { saveProjectSTodoLS } from "../../helpful_functions/localStorage";
 
 export default function addItem(e) {
   e.preventDefault();
@@ -55,6 +56,8 @@ export default function addItem(e) {
         }
       }
     });
+
+    saveProjectSTodoLS("projects", projects);
 
     dialogContainer.close();
     dialogContainer.remove();
