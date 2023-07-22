@@ -12,9 +12,7 @@ const createProject = (title, description) => {
 };
 
 const deleteProject = (item) => {
-  console.log(`Calling Projects before filter: ${projects}`);
   projects = projects.filter((object) => object.id !== item);
-  console.log(`Calling Projects after filter: ${projects}`);
 };
 
 const findByID = (id) => projects.find((item) => item.id === id);
@@ -33,16 +31,24 @@ const readInformation = () => {
 // Still thinking about how I'll use setProjects
 const setProjects = (value) => projects.push(value);
 
-const getProjects = () => projects;
+const getProjects = () => {};
 
 const retrieveFromLocalStorage = (keyName) => {
-  const hello = lookForDataInLS(keyName);
-  // data.forEach((item) =>
-  //   setProjects(Object.assign(new Project(), item))
-  console.log(hello);
-  return hello.forEach((item) =>
-    setProjects(Object.assign(new Project(), item))
-  );
+  const arrayWithObjects = lookForDataInLS(keyName);
+
+  console.log(arrayWithObjects);
+
+  for (let i = 0; i < arrayWithObjects.length; i += 1) {
+    console.log(arrayWithObjects[i]);
+    Object.assign(new Project(), arrayWithObjects[i]);
+    // SETTTERS | GETTERS
+  }
+  // return hello.forEach((item) => {
+  //   console.log(item);
+  //   Object.assign(new Project(), item);
+  // });
+
+  // return Object.assign(new Project(), hello);
 };
 
 export {
