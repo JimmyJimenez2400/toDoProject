@@ -1,5 +1,6 @@
 import addProject from "../components/Controller/addProject";
 import openForm from "../components/Controller/openProjectForm";
+import { retrieveFromLocalStorage } from "../components/Model/collection";
 
 export default function pageLoad() {
   const content = document.querySelector("#content");
@@ -10,19 +11,13 @@ export default function pageLoad() {
   addProjectButton.addEventListener("click", openForm);
 
   projectSubmit.addEventListener("click", addProject);
-  // itemSubmit.addEventListener("click", addTask);
 
-  // addItemButton
-  // itemSubmit
+  // In here we're going to probably save the array `projects` into the local storage
+  // Or we can retrieve it from here
 
-  // event listener
-  // event listener
+  // Remember, we have to set up a complete or incomplete status for each `todo` item, inside project template
 
-  // addProjectButton.addEventListener("click", () => {
-  //   const getTitleInput = document.getElementById("title").value;
-  //   console.log(getTitleInput);
-
-  // });
+  retrieveFromLocalStorage("projects");
 
   return content;
 }
