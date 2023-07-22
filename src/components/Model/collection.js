@@ -31,7 +31,9 @@ const readInformation = () => {
 // Still thinking about how I'll use setProjects
 const setProjects = (value) => projects.push(value);
 
-const getProjects = () => {};
+const getProjects = () => {
+  console.log(projects);
+};
 
 const retrieveFromLocalStorage = (keyName) => {
   const arrayWithObjects = lookForDataInLS(keyName);
@@ -40,15 +42,16 @@ const retrieveFromLocalStorage = (keyName) => {
 
   for (let i = 0; i < arrayWithObjects.length; i += 1) {
     console.log(arrayWithObjects[i]);
-    Object.assign(new Project(), arrayWithObjects[i]);
-    // SETTTERS | GETTERS
-  }
-  // return hello.forEach((item) => {
-  //   console.log(item);
-  //   Object.assign(new Project(), item);
-  // });
+    const item = new Project(
+      arrayWithObjects[i].title,
+      arrayWithObjects[i].description,
+      arrayWithObjects[i].id
+    );
 
-  // return Object.assign(new Project(), hello);
+    setProjects(item);
+
+    getProjects();
+  }
 };
 
 export {
