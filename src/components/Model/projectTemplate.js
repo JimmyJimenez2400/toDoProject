@@ -61,5 +61,14 @@ class Project {
     return this.tasks.find((task) => task.id === id);
     // we can retrieve a specific task or item which can be used to `update cards`
   }
+
+  toJSON() {
+    return {
+      title: this.current_title,
+      description: this.current_description,
+      task: this.tasks,
+      id: this.id,
+    };
+  }
 }
 export default Project;
