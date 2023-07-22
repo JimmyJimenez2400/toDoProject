@@ -1,4 +1,4 @@
-import { projects, createProject } from "../Model/collection";
+import { projects, createProject, getProjects } from "../Model/collection";
 import createProjectTab from "../View/createTabProject";
 import createMainTab from "../View/createMainTab";
 import { saveProjectSTodoLS } from "../../helpful_functions/localStorage";
@@ -15,6 +15,8 @@ export default function addProject(e) {
   createMainTab(item.title, item.description, item.id);
 
   saveProjectSTodoLS("projects", projects);
+
+  getProjects();
 
   titleInput.value = "";
   descriptionInput.value = "";
