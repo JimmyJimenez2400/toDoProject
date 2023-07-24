@@ -1,4 +1,5 @@
 import { projects } from "../Model/collection";
+import { saveProjectSTodoLS } from "../../helpful_functions/localStorage";
 
 export default function removeTask(e) {
   // The purpose is to remove item from their object and from the display items
@@ -28,6 +29,7 @@ export default function removeTask(e) {
       projects.forEach((project) => {
         project.removeTodoItem(buttonID);
       });
+      saveProjectSTodoLS("projects", projects);
     }
   }
 }

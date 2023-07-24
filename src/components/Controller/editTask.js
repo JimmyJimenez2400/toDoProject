@@ -1,10 +1,10 @@
 import { projects } from "../Model/collection";
 import openEditForm from "./openEditForm";
+import { saveProjectSTodoLS } from "../../helpful_functions/localStorage";
 
 export default function editTask(e) {
   e.preventDefault();
   openEditForm();
-
 
   const buttonID = e.target.getAttribute("data-editid");
 
@@ -58,6 +58,7 @@ export default function editTask(e) {
 
     editDialogContainer.close();
     editDialogContainer.remove();
+    saveProjectSTodoLS("projects", projects);
   });
 
   // NEW PLAN

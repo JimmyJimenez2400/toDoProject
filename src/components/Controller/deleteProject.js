@@ -1,4 +1,5 @@
-import { deleteProject } from "../Model/collection";
+import { deleteProject, projects } from "../Model/collection";
+import { saveProjectSTodoLS } from "../../helpful_functions/localStorage";
 
 export default function delProject(e) {
   // For deleting, we just need to remove the object
@@ -17,6 +18,7 @@ export default function delProject(e) {
 
       if (delID === projectID && delID === projectContainerID) {
         deleteProject(delID);
+        saveProjectSTodoLS("projects", projects);
 
         projectTabs[i].remove();
         projectContainers[j].remove();

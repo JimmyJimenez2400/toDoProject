@@ -1,9 +1,10 @@
 import openEditForm from "./openEditProject";
 import {
-  projects,
   updateTitleAndDescription,
   findByID,
+  projects,
 } from "../Model/collection";
+import { saveProjectSTodoLS } from "../../helpful_functions/localStorage";
 
 export default function editForm(e) {
   e.preventDefault();
@@ -66,9 +67,8 @@ export default function editForm(e) {
       }
     }
 
-    console.log(projects);
-
     editDialogContainer.close();
     editDialogContainer.remove();
+    saveProjectSTodoLS("projects", projects);
   });
 }
