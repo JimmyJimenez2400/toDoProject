@@ -259,7 +259,7 @@ button {
 }
 
 .ONLINE {
-  display: block;
+  display: flex;
 }
 
 .OFFLINE {
@@ -302,6 +302,7 @@ button {
 
 
 .middleRow {
+  flex: 2;
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
