@@ -12,8 +12,10 @@ function lookForDataInLS(keyName) {
     return [];
   }
   const getItem = localStorage.getItem(keyName);
+  console.log(getItem);
 
   const data = JSON.parse(getItem);
+  console.log(data);
 
   return data;
 }
