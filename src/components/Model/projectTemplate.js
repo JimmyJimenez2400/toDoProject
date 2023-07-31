@@ -9,6 +9,7 @@ class Project {
     this.description = description;
     this.id = id;
     this.tasks = [];
+    this.completeTasks = [];
   }
 
   set title(value) {
@@ -37,8 +38,15 @@ class Project {
     return this.tasks;
   }
 
-  createTodoItem(task, date, priority, notes, id = randomString()) {
-    const todoItem = new Task(task, date, priority, notes, id);
+  createTodoItem(
+    task,
+    date,
+    priority,
+    notes,
+    status = "incomplete",
+    id = randomString()
+  ) {
+    const todoItem = new Task(task, date, priority, notes, status, id);
     this.tasks.push(todoItem);
     return todoItem;
   }
@@ -47,14 +55,18 @@ class Project {
     this.tasks = this.tasks.filter((task) => task.id !== item);
   }
 
-  updateTodoItem(id, task, date, priority, notes) {
+  updateTodoItem(id, task, date, priority, notes, status) {
     this.tasks = this.task.map((item) =>
-      item.id === id ? new Task(task, date, priority, notes, id) : item
+      item.id === id ? new Task(task, date, priority, notes, status, id) : item
     );
   }
 
   retrieveItemsInProject() {
     this.tasks.forEach((item) => item);
+  }
+
+  retrieveItemsInCompleteTasks() {
+    this.completeTasks.forEach((item) => item);
   }
 
   byID(id) {
@@ -67,6 +79,7 @@ class Project {
       title: this.current_title,
       description: this.current_description,
       task: this.tasks,
+      completeTask: this.completeTasks,
       id: this.id,
     };
   }
