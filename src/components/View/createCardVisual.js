@@ -1,6 +1,8 @@
 import removeTaskItem from "../Controller/removeTaskItem";
 import editTask from "../Controller/editTask";
 
+import { changeItemStatus } from "../Controller/checkStatus";
+
 // Create how the initial card will look
 export default function createItemCard(task, note, priority, date, id) {
   // grab currentPage or main page to append to
@@ -24,14 +26,24 @@ export default function createItemCard(task, note, priority, date, id) {
   const taskSection = document.createElement("section");
   taskSection.setAttribute("class", "taskSection");
 
+  const labelCheckBox = document.createElement("label");
+  labelCheckBox.setAttribute("for", "status");
+  labelCheckBox.textContent = "Status:";
+
   const inputTask = document.createElement("input");
   inputTask.setAttribute("type", "checkbox");
+  inputTask.setAttribute("id", "status");
+  inputTask.setAttribute("data-statusid", `${id}`);
+  inputTask.addEventListener("click", changeItemStatus);
+
+  labelCheckBox.appendChild(inputTask);
+
   const labelTask = document.createElement("label");
   labelTask.setAttribute("for", "checkbox");
   labelTask.setAttribute("class", "labelTask");
   labelTask.textContent = `${task}`;
 
-  taskSection.appendChild(inputTask);
+  taskSection.appendChild(labelCheckBox);
   taskSection.appendChild(labelTask);
 
   topSectionLeftItem.appendChild(taskSection);
