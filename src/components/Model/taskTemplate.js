@@ -1,11 +1,11 @@
 /* eslint-disable no-dupe-class-members */
 class Task {
-  constructor(task, date, priority, notes, id) {
+  constructor(task, date, priority, notes, status, id) {
     this.task = task;
     this.date = date;
     this.priority = priority;
     this.notes = notes;
-
+    this.status = status;
     this.id = id;
   }
 
@@ -39,7 +39,7 @@ class Task {
   }
 
   set notes(value) {
-    if (value.length < 10)
+    if (value.length < 5)
       throw new Error("Invalid, note description is too short.");
 
     this.current_notes = value;
@@ -51,6 +51,7 @@ class Task {
       date: this.date,
       priority: this.priority,
       notes: this.notes,
+      status: this.status,
       id: this.id,
     };
   }
