@@ -83,14 +83,8 @@ const retrieveFromLocalStorage = (keyName) => {
         }
       }
 
-      // console.log(test[start].task[j]);
+      
     }
-    // createItemCard(
-    //   test[start].tasks[start].task,
-    //   test[start].tasks[start].notes,
-    //   test[start].tasks[start].priority,
-    //   test[start].tasks[start].date
-    // );
   }
 };
 
