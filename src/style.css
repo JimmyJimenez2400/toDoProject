@@ -252,7 +252,7 @@ button {
 .projectContainer {
   height: 100%;
   color: var(--Ghost-White);
-  display: flex;
+  display: none;
   flex-direction: column;
 
   flex: 1;
