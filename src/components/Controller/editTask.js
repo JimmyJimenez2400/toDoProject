@@ -45,14 +45,31 @@ export default function editTask(e) {
       const changeDate = grabAllCardVisuals[i].querySelector(".inputDate");
       const changePriority =
         grabAllCardVisuals[i].querySelector(".priorityTitleSpan");
+
       if (cardID === buttonID) {
-        projects.forEach((project) => {
+        // projects.forEach((project) => {
+        //   const itemFound = project.byID(cardID);
+        //   if (itemFound === undefined) {
+        //     console.log("IT RETURNED UNDEFINED");
+        //     continue;
+        //   }
+        // changeTaskText.textContent = `${itemFound.task}`;
+        // changeNoteText.textContent = `${itemFound.notes}`;
+        // changeDate.textContent = `${itemFound.date}`;
+        // changePriority.textContent = `${itemFound.priority}`;
+        // });
+        // eslint-disable-next-line no-restricted-syntax
+        for (const project of projects) {
           const itemFound = project.byID(cardID);
+          if (itemFound === undefined) {
+            // eslint-disable-next-line no-continue
+            continue;
+          }
           changeTaskText.textContent = `${itemFound.task}`;
           changeNoteText.textContent = `${itemFound.notes}`;
           changeDate.textContent = `${itemFound.date}`;
           changePriority.textContent = `${itemFound.priority}`;
-        });
+        }
       }
     }
 
