@@ -42,6 +42,7 @@ export default function editForm(e) {
     );
 
     const itemFound = findByID(getCurrentID);
+    console.log(itemFound);
 
     for (let i = 0; i < liElements.length; i += 1) {
       const getCurrentLiElementID = liElements[i].id;
