@@ -55,7 +55,7 @@ class Project {
     this.tasks = this.tasks.filter((task) => task.id !== item);
   }
 
-  updateTodoItem(id, task, date, priority, notes, status) {
+  updateTodoItem(id, task, date, priority, notes, status = "incomplete") {
     this.tasks = this.task.map((item) =>
       item.id === id ? new Task(task, date, priority, notes, status, id) : item
     );
